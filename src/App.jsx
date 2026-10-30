@@ -136,12 +136,15 @@ export default function App() {
     go("sec-dots");
     setRun((r) => r + 1);
     await sleep(4500);
-    setPick(1); setRun((r) => r + 1);
-    await sleep(4000);
-    setPick(4); setRun((r) => r + 1);
-    await sleep(4000);
-    setPick(0); setSeason("B"); setRun((r) => r + 1);
-    await sleep(4500);
+    for (const i of [1, 2, 3, 4, 5]) {
+      setPick(i); setRun((r) => r + 1);
+      await sleep(2500);
+    }
+    setSeason("B");
+    for (const i of [0, 1, 2, 3, 4, 5]) {
+      setPick(i); setRun((r) => r + 1);
+      await sleep(2000);
+    }
     go("sec-gap");
     setRun((r) => r + 1);
     await sleep(5000);
@@ -309,7 +312,7 @@ export default function App() {
         <section className="take" id="sec-take">
           <h2>What this means</h2>
           <ul>
-            <li>Large-scale farmers are about 2 to 6 times more likely to use improved seeds and irrigation, and far more likely to use machines.</li>
+            <li>Large-scale farmers are about 4 to 6 times more likely to use improved seeds and irrigation, and far more likely to use machines.</li>
             <li>Mechanical equipment shows the widest gap: 23% of large-scale farmers use it, against 0.3% of small-scale farmers (Season A).</li>
             <li>Narrowing these gaps is a clear priority for farm policy and support.</li>
           </ul>
